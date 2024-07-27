@@ -774,6 +774,14 @@ progress {
   margin-top: var(--bs-gutter-y);
 }
 
+.rowDashboard {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  width: 100%;             /* Full width to ensure centering works */
+  gap: 20px;               /* Adjust the value as needed for spacing */
+}
+
 .col {
   flex: 1 0 0%;
 }
@@ -10813,10 +10821,6 @@ fieldset:disabled .btn {
 
 .bg-gray-900 {
   background-color: #212529 !important;
-}
-
-.bg-green {
-  background-color: green !important;
 }
 
 .bg-opacity-10 {
