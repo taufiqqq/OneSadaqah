@@ -280,16 +280,17 @@
               <div class="row">
                 <div class="col-md-20 col-20">
                   <div class="card">
-                    <div class="card-header mx-4 p-3 text-center">
-                      <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                        <i class="material-icons opacity-10">account_balance</i>
-                      </div>
-                    </div>
-                    <div class="card-body pt-0 p-3 text-center">
-                      <h6 class="text-center mb-0">Salary</h6>
-                      <span class="text-xs">Belong Interactive</span>
-                      <hr class="horizontal dark my-3">
-                      <h5 class="mb-0">+$2000</h5>
+                    <div class="card-body pt-0 p-4 text-center">
+                      <form class="formWallet">
+                        <label for="addWallet">Add to Wallet</label>
+                        <div class=" border card-plain border-radius-lg d-flex align-items-center">
+                            <input type="number" class="form-control-wallet" id="addWallet" placeholder="Enter the amount to add" required min="1">
+                        </div>
+                        <hr class="horizontal dark my-3">
+                        <div>
+                          <button type="submit" class="btn btn-info">Add</button>
+                        </div>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -339,7 +340,7 @@
                   <h6 class="mb-0">Invoices</h6>
                 </div>
                 <div class="col-6 text-end">
-                  <button class="btn btn-outline-primary btn-sm mb-0">View All</button>
+                  <button class="btn btn-outline-info btn-sm mb-0">View All</button>
                 </div>
               </div>
             </div>
