@@ -133,12 +133,19 @@
           <h6 class="font-weight-bolder mb-0">Billing</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group input-group-outline">
-              <label class="form-label">Type here...</label>
-              <input type="text" class="form-control">
+            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+              <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                  <div class="input-group input-group-outline">
+                    
+                    <div class="wallet-container d-flex align-items-center">
+                      <img src="../assets/img/icons8-wallet.png" alt="Wallet Icon" class="wallet-icon me-2" />
+                      <span class="wallet-balance">SDQ 100.00</span>
+                    </div>
+                  </div>
+                </div>
+              
             </div>
-          </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
@@ -264,23 +271,23 @@
                             <form class="formBilling">
                                 <label for="cardName">Cardholder Name</label>
                                 <div class=" border card-plain border-radius-lg d-flex align-items-center">
-                                    <input type="text" class="form-control" id="cardName" placeholder="Enter cardholder name" required>
+                                    <input type="text" class="form-control-billing" id="cardName" placeholder="Enter cardholder name" required>
                                 </div>
                                 <label for="cardNumber">Card Number</label>
                                 <div class="border card-plain border-radius-lg d-flex align-items-center">
-                                    <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number" required>
+                                    <input type="text" class="form-control-billing" id="cardNumber" placeholder="Enter card number" required>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 mb-md-0 mb-4">
                                         <label for="expiryDate">Expiration Date</label>
                                         <div class="border card-plain border-radius-lg d-flex align-items-center">
-                                            <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
+                                            <input type="text" class="form-control-billing" id="expiryDate" placeholder="MM/YY" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="cvv">CVV</label>
                                         <div class="border card-plain border-radius-lg d-flex align-items-center">
-                                            <input type="text" class="form-control" id="cvv" placeholder="CVV" required>
+                                            <input type="text" class="form-control-billing" id="cvv" placeholder="CVV" required>
                                         </div>
                                     </div>
                                 </div>
