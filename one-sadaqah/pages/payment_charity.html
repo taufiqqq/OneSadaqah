@@ -291,7 +291,7 @@
 
               <div class="wallet-container d-flex align-items-center">
                 <img src="../assets/img/icons8-wallet.png" alt="Wallet Icon" class="wallet-icon me-2" />
-                <span class="wallet-balance">$100.00</span>
+                <span class="wallet-balance">{{ tokenBalance }}</span>
               </div>
             </div>
           </div>
@@ -571,20 +571,16 @@
         transactions: []
       }
     },
-    created() {
+    mounted() {
+      this.fetchTokenBalance();
       this.fetchTransactions();
-
     },
     methods: {
-      async checkTokenBalance() {
-        if (!this.balanceWalletAddress || !this.balanceContractAddress) {
-          alert("Please enter both wallet and contract addresses");
-          return;
-        }
+      async fetchTokenBalance() {
 
         const payload = {
-          wallet_address: this.balanceWalletAddress,
-          contract_address: this.balanceContractAddress,
+          wallet_address: window.env.wallet_address2,
+          contract_address: window.env.transferContractAddress,
         };
 
         try {
@@ -597,8 +593,11 @@
                 client_secret: this.client_secret,
               },
             }
-          );
-          this.tokenBalance = res.data.result;
+          );   
+
+          const rawBalance = parseFloat(res.data.result);
+
+          this.tokenBalance = rawBalance.toFixed(2) + ' SDG';
         } catch (error) {
           console.error("Error fetching token balance:", error);
           this.tokenBalance = error.response ? error.response.data : "An error occurred";
@@ -623,7 +622,7 @@
         this.transferAmount = this.transferInput.customAmount;
 
         const payload = {
-          wallet_address: window.env.wallet_address,
+          wallet_address: window.env.wallet_address2,
           to: window.env.transferToAddress1,
           amount: this.transferAmount,
           contract_address: window.env.transferContractAddress,
