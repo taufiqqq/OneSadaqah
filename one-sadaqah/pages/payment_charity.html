@@ -512,7 +512,7 @@
               <tr v-for="transaction in transactions" :key="transaction.transactionHash">
                 <td>{{ transaction.from }}</td>
                 <td>{{ transaction.to }}</td>
-                <td>{{ transaction.amount }} {{ transaction.token.symbol }}</td>
+                <td>{{ (transaction.amount).substring(0,transaction.amount.length-18) }} {{ transaction.token.symbol }}</td>
                 <td>{{ transaction.timestamp }}</td>
                 <td>{{ transaction.transactionHash }}</td>
               </tr>
@@ -597,7 +597,7 @@
 
           const rawBalance = parseFloat(res.data.result);
 
-          this.tokenBalance = rawBalance.toFixed(2) + ' SDG';
+          this.tokenBalance = rawBalance.toFixed(2) + ' SDQ';
         } catch (error) {
           console.error("Error fetching token balance:", error);
           this.tokenBalance = error.response ? error.response.data : "An error occurred";
@@ -648,32 +648,6 @@
           alert("Error transferring tokens. Please try again.");
         }
       },
-      // async getTokenTransactions() {
-      //   const params = {
-      //     wallet_address: window.env.transferToAddress1,
-      //     contract_address: window.env.transferContractAddress,
-      //     filter: this.transactionFilter,
-      //   };
-
-      //   try {
-      //     const res = await axios.get(
-      //       "https://service-testnet.maschain.com/api/token/get-token-transaction",
-      //       {
-      //         headers: {
-      //           client_id: this.client_id,
-      //           client_secret: this.client_secret,
-      //           "content-type": "application/json",
-      //         },
-      //         params: params,
-      //       }
-      //     );
-      //     this.transactions = res.data;
-      //   } catch (error) {
-      //     console.error("Error fetching token transactions:", error);
-      //     this.tokenTransactions = error.response ? error.response.data : "An error occurred";
-      //     this.transactions = [];
-      //   }
-      // },
       async fetchTransactions() {
         const walletAddress = window.env.transferToAddress1;
         const contractAddress = window.env.transferContractAddress;

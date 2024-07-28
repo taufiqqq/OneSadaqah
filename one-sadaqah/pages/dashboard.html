@@ -37,6 +37,10 @@
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="../config.js"></script>
+
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -121,7 +125,7 @@
       </ul>
     </div>
   </aside>
-  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg " id="myApp">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
       <div class="container-fluid py-1 px-3">
@@ -138,7 +142,7 @@
               
               <div class="wallet-container d-flex align-items-center">
                 <img src="../assets/img/icons8-wallet.png" alt="Wallet Icon" class="wallet-icon me-2" />
-                <span class="wallet-balance">SDQ 100.00</span>
+                <span class="wallet-balance">{{ tokenBalance }}</span>
               </div>
             </div>
           </div>
@@ -252,7 +256,7 @@
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Your Wallet</p>
-                <h4 class="mb-0">200 SDQCoin</h4>
+                <h4 class="mb-0">{{ tokenBalance }}</h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
@@ -473,7 +477,39 @@
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/chartjs.min.js"></script>
   <script>
-    var ctx = document.getElementById("chart-bars").getContext("2d");
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
+</body>
+
+<script>
+  const vueApp = Vue.createApp({
+    data() {
+      return {
+        client_id: window.env.client_id,
+        client_secret: window.env.client_secret,
+        balanceWalletAddress: "",
+        balanceContractAddress: "",
+        tokenBalance: null,
+        transferWalletAddress: "",
+        transferToAddress: "",
+        transferContractAddress: "",
+        transferResponse: null,
+      }
+    },
+    mounted() {
+      this.fetchTokenBalance();
+
+      var ctx = document.getElementById("chart-bars").getContext("2d");
 
     new Chart(ctx, {
       type: "line",
@@ -730,20 +766,38 @@
         },
       },
     });
-  </script>
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
-  <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
-</body>
+    },
+    methods: {
+      async fetchTokenBalance() {
+
+        const payload = {
+          wallet_address: window.env.wallet_address2,
+          contract_address: window.env.transferContractAddress,
+        };
+
+        try {
+          const res = await axios.post(
+            "https://service-testnet.maschain.com/api/token/balance",
+            payload,
+            {
+              headers: {
+                client_id: this.client_id,
+                client_secret: this.client_secret,
+              },
+            }
+          );
+
+          const rawBalance = parseFloat(res.data.result);
+
+          this.tokenBalance = rawBalance.toFixed(2) + ' SDQ';
+        } catch (error) {
+          console.error("Error fetching token balance:", error);
+          this.tokenBalance = error.response ? error.response.data : "An error occurred";
+        }
+      },
+    },
+  });
+  vueApp.mount("#myApp");
+</script>
 
 </html>

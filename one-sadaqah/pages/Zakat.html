@@ -38,6 +38,10 @@
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="../config.js"></script>
+
   <style>
     #fidyah,
     #zakat-lain {
@@ -131,7 +135,7 @@
       </ul>
     </div>
   </aside>
-  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg" id="myApp">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
       data-scroll="true">
@@ -143,22 +147,22 @@
           </ol>
           <h6 class="font-weight-bolder mb-0">Zakat</h6>
         </nav>
-        
+
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          
-            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-              <div class="input-group input-group-outline">
-                
-                <div class="wallet-container d-flex align-items-center">
-                  <img src="../assets/img/icons8-wallet.png" alt="Wallet Icon" class="wallet-icon me-2" />
-                  <span class="wallet-balance">SDQ 100.00</span>
-                </div>
+
+          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+            <div class="input-group input-group-outline">
+
+              <div class="wallet-container d-flex align-items-center">
+                <img src="../assets/img/icons8-wallet.png" alt="Wallet Icon" class="wallet-icon me-2" />
+                <span class="wallet-balance">{{ tokenBalance }}</span>
               </div>
             </div>
-         
+          </div>
+
           <ul class="navbar-nav  justify-content-end">
-            
-           
+
+
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
@@ -340,7 +344,8 @@
                       <div class="col-md-6">
                         <label for="jumlah-bayaran">Total Payment (RM)</label>
                         <div class="border card-plain border-radius-lg d-flex align-items-center">
-                          <input type="text" class="form-control" id="jumlah-bayaran" placeholder="0" required>
+                          <input type="text" class="form-control" id="jumlah-bayaran"
+                            v-model="transferInput.customAmount" placeholder="0" required>
                         </div>
                       </div>
                     </div>
@@ -365,7 +370,7 @@
                     </div>
                   </div>
                   <div>
-                    <button type="submit" class="btn btn-info">Seterusnya</button>
+                    <button v-on:click="transferTokens()" class="btn btn-info">Seterusnya</button>
                   </div>
                 </form>
                 <!-- ----------------------------------------------------------------------------- -->
@@ -442,8 +447,7 @@
         </div>
         <a href="javascript:void(0)" class="switch-trigger background-color">
           <div class="badge-colors my-2 text-start">
-            <span class="badge filter bg-gradient-info active" data-color="info"
-              onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-info active" data-color="info" onclick="sidebarColor(this)"></span>
             <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
             <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
             <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
@@ -560,5 +564,98 @@
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
 </body>
+
+<script>
+  const vueApp = Vue.createApp({
+    data() {
+      return {
+        client_id: window.env.client_id,
+        client_secret: window.env.client_secret,
+        balanceWalletAddress: "",
+        balanceContractAddress: "",
+        tokenBalance: null,
+        transferInput: {
+          customAmount: "1",
+        },
+        transferWalletAddress: "",
+        transferToAddress: "",
+        transferContractAddress: "",
+        transferResponse: null,
+        callbackUrl: "",
+      }
+    },
+    mounted() {
+      this.fetchTokenBalance();
+    },
+    methods: {
+      async fetchTokenBalance() {
+
+        const payload = {
+          wallet_address: window.env.wallet_address2,
+          contract_address: window.env.transferContractAddress,
+        };
+
+        try {
+          const res = await axios.post(
+            "https://service-testnet.maschain.com/api/token/balance",
+            payload,
+            {
+              headers: {
+                client_id: this.client_id,
+                client_secret: this.client_secret,
+              },
+            }
+          );
+
+          const rawBalance = parseFloat(res.data.result);
+
+          this.tokenBalance = rawBalance.toFixed(2) + ' SDQ';
+        } catch (error) {
+          console.error("Error fetching token balance:", error);
+          this.tokenBalance = error.response ? error.response.data : "An error occurred";
+        }
+      },
+      async transferTokens() {
+
+        console.log(this.transferInput.customAmount);
+
+        if (!this.transferInput.customAmount) {
+          alert("Please fill in the amounts");
+          return;
+        }
+
+        this.transferAmount = this.transferInput.customAmount;
+
+        const payload = {
+          wallet_address: window.env.wallet_address2,
+          to: window.env.wallet_address3,
+          amount: this.transferAmount,
+          contract_address: window.env.transferContractAddress,
+          callback_url: window.env.callbackUrl,
+        };
+
+        try {
+          const res = await axios.post(
+            "https://service-testnet.maschain.com/api/token/token-transfer",
+            payload,
+            {
+              headers: {
+                client_id: this.client_id,
+                client_secret: this.client_secret,
+              },
+            }
+          );
+          this.transferResponse = res.data.result;
+          alert("Transfer successful!");
+        } catch (error) {
+          console.error("Error transferring tokens:", error);
+          this.transferResponse = error.response ? error.response.data : "An error occurred";
+          alert("Error transferring tokens. Please try again.");
+        }
+      },
+    },
+  });
+  vueApp.mount("#myApp");
+</script>
 
 </html>
