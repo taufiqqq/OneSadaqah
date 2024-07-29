@@ -49,40 +49,102 @@
       margin: 0 auto;
       padding: 20px;
       overflow-x: auto;
-      /* Enables horizontal scrolling if necessary */
+      background: #f5f7fa;
+      /* Soft background color */
+      border-radius: 8px;
+      /* Rounded corners for the container */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* Subtle shadow for depth */
     }
 
     .table-wrapper {
       overflow-x: auto;
-      /* Ensures the table does not overflow the container */
+      margin-bottom: 20px;
+      /* Space between tables */
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       min-width: 600px;
-      /* Adjust this value based on your minimum desired width */
       table-layout: auto;
-      /* Allows table to adjust width based on content */
+      background: #ffffff;
+      /* White background for table */
+      border-radius: 8px;
+      /* Rounded corners for the table */
+      overflow: hidden;
+      /* Ensures rounded corners are visible */
     }
 
     th,
     td {
       border: 1px solid #ddd;
-      padding: 8px;
-      font-size: 12px;
-      /* Slightly increased for readability */
+      padding: 12px;
+      /* Increased padding for more space */
+      font-size: 14px;
+      /* Increased font size for better readability */
       white-space: nowrap;
-      /* Prevents text from wrapping inside cells */
+      text-align: center;
+      /* Centered text */
     }
 
     th {
-      background-color: #f4f4f4;
-      text-align: left;
+      background-color: #6c7ae0;
+      /* Soft blue background for headers */
+      color: #ffffff;
+      /* White text for headers */
+      text-align: center;
+      /* Centered text */
+      text-transform: uppercase;
+      /* Uppercase headers */
+      font-weight: 600;
+      /* Bold headers */
     }
 
     tr:nth-child(even) {
       background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #e0e7ff;
+      /* Light blue background on hover */
+    }
+
+    h2,
+    h3 {
+      text-align: center;
+      /* Centered headings */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* Modern font family */
+      color: #333;
+      /* Dark gray text color */
+    }
+
+    h2 {
+      font-size: 24px;
+      /* Larger font size for main heading */
+      margin-bottom: 30px;
+      /* Space below main heading */
+    }
+
+    h3 {
+      font-size: 20px;
+      /* Larger font size for subheadings */
+      margin-top: 20px;
+      /* Space above subheadings */
+      margin-bottom: 20px;
+      /* Space below subheadings */
+    }
+
+    p {
+      text-align: center;
+      /* Centered text */
+      font-size: 16px;
+      /* Increased font size for paragraph text */
+      color: #777;
+      /* Light gray text color */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* Modern font family */
     }
   </style>
 </head>
@@ -362,7 +424,7 @@
 
 
           <div v-if="transactionsZakat.length">
-            <h3>Zakat</h3>
+            <h3 style="margin-top: 50px;">Zakat</h3>
             <div class="table-wrapper">
               <table>
                 <thead>
@@ -428,7 +490,7 @@
           </div>
         </div>
       </footer> -->
-    <!--</div>
+      <!--</div>
      <div class="fixed-plugin">
       <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
         <i class="material-icons py-2">settings</i>
@@ -514,24 +576,24 @@
         </div>
       </div>
     </div> -->
-    <!--   Core JS Files   -->
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
-    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script>
-      var win = navigator.platform.indexOf('Win') > -1;
-      if (win && document.querySelector('#sidenav-scrollbar')) {
-        var options = {
-          damping: '0.5'
+      <!--   Core JS Files   -->
+      <script src="../assets/js/core/popper.min.js"></script>
+      <script src="../assets/js/core/bootstrap.min.js"></script>
+      <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+      <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+      <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+          var options = {
+            damping: '0.5'
+          }
+          Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
-        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-      }
-    </script>
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
+      </script>
+      <!-- Github buttons -->
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+      <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+      <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
 </body>
 
 <script>
