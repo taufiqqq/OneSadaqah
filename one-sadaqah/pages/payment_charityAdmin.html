@@ -19,9 +19,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="icon" type="image/png" href="../assets/img/logo-onesadaqah.png">
   <title>
-    Material Dashboard 2 by Creative Tim
+    OneSadaqah
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css"
@@ -195,8 +195,7 @@
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
         aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
-        target="_blank">
+      <a class="navbar-brand m-0" target="_blank">
         <center><img src="../assets/img/logo-onesadaqah.png" class="navbar-brand-img h-100" alt="main_logo"></center>
       </a>
     </div>
@@ -236,7 +235,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications.html">
+          <a class="nav-link text-white " href="../pages/fidyah.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">notifications</i>
             </div>
@@ -254,22 +253,6 @@
             <span class="nav-link-text ms-1">Profile</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/sign-in.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">login</i>
-            </div>
-            <span class="nav-link-text ms-1">Sign In</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/sign-up.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">assignment</i>
-            </div>
-            <span class="nav-link-text ms-1">Sign Up</span>
-          </a>
-        </li>
       </ul>
     </div>
   </aside>
@@ -283,7 +266,7 @@
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
             <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Charity Page</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Rumah Charis</h6>
+          <h6 class="font-weight-bolder mb-0">Islamic Relief Malaysia</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -396,9 +379,8 @@
             </ul>
           </li>
           <li class="nav-item d-flex align-items-center">
-            <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
+            <a href="../pages/profile.html" class="nav-link text-body font-weight-bold px-0">
               <i class="fa fa-user me-sm-1"></i>
-              <span class="d-sm-inline d-none">Sign In</span>
             </a>
           </li>
         </ul>
@@ -406,69 +388,47 @@
       </div>
     </nav>
     <div class="header">
-      <h1>Welcome to Crowdfunding For Rumah Charity </h1>
+      <h1>Charity For Islamic Relief Malaysia </h1>
     </div>
     <div class="container">
       <div class="content">
         <h2>About the Project</h2>
-        <p>We are excited to present our new innovative product that will revolutionize the way you live. Join us on
-          this journey to make this dream a reality.</p>
+        <p>The Prophet (peace be upon him) said: “When a person dies, all their deeds end except three: A continuing charity, beneficial knowledge and a child who prays for them.”</p>
         <div class="cta">
-          <img src="../assets/img/oldfolks.jpeg" alt="Project Image">
-
+          <img src="../assets/img/IslamicRelief_photo.jpg" alt="Project Image">
           <div class="button-container">
             <div class="card my-4">
-              <div class="card-header p-0 position-relative mt-n4 mx-6 z-index-2">
-                <div class="bg-gradient-info shadow-primary border-radius-lg pt-4 pb-4">
-                  <h6 class="text-white text-capitalize ps-8">Help Them</h6>
+              <div class="card-header p-0 position-relative mt-n4 mx-4 z-index-2">
+                <div class="bg-gradient-info shadow-primary border-radius-lg pt-4 pb-4 text-center">
+                  <h5 class="text-white text-capitalize">Contribute to the charity</h5>
                 </div>
               </div>
-              <div class="card-body px-0 pb-2">
-                <div class="table-responsive p-0">
-                  <table class="table align-items-center mb-0">
-                    <tbody>
-                      <tr>
-                        <td class="align-middle text-center">
-                          <div class="mb-3">
-                            <label for="customAmount" class="form-label">Enter your own amount</label>
-                            <input type="number" class="form-control custom-amount-field" id="customAmount"
-                              v-model="transferInput.customAmount" name="custom_amount" placeholder="Enter amount"
-                              aria-label="Enter your own amount" min="1">
-                          </div>
-                          <button v-on:click="transferTokens()" class="btn btn-info">Donate
-                            Here</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td colspan="2">
-                          <!-- <form> -->
-                          <!-- <div class="mb-3">
-                              <label for="presetAmount" class="form-label">Choose donation amount</label>
-                              <select class="form-select" id="presetAmount" v-model="transferInput.selectedAmount"
-                                name="amount" aria-label="Select donation amount">
-                                <option selected>Choose amount</option>
-                                <option value="20">$20</option>
-                                <option value="50">$50</option>
-                                <option value="100">$100</option>
-                                <option value="200">$200</option>
-                              </select>
-                            </div> -->
-                          <!-- </form> -->
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+              <div class="card-body px-7 pb-2">
+                <div class="form-container text-center">
+                  <div class="mb-3">
+                    <label for="customAmount" class="form-label">Enter your own amount</label>
+                    <input type="number" class="form-control custom-amount-field" id="customAmount"
+                      v-model="transferInput.customAmount" name="custom_amount" placeholder="Enter amount"
+                      aria-label="Enter your own amount" min="1">
+                  </div>
+                  <button v-on:click="transferTokens()" class="btn btn-info">Donate Here</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <p>This project aims to solve everyday problems with an efficient and sustainable solution. With your support,
-          we can bring this project to life and make a positive impact.</p>
-
+        <p>
+          <b>Sharing of Fortune and Rizq with Others</b>
+          <p>
+            Islamic Relief Malaysia continues to be proactive in helping those in need locally or abroad regardless of any differences through the mySedekah campaign which covers various aid sectors such as food, emergency, community development, health, education, water sanitation & hygiene, and others.
+          </p>
+          <p>
+            The campaign will run throughout the year for continuous connection between the donors and the beneficiaries.
+          </p>
+        </p>
         <!-- Display results in a table -->
         <div v-if="transactions.length">
-          <h2>Transactions</h2>
+          <h4>Transactions</h4>
           <table>
             <thead>
               <tr>
