@@ -452,21 +452,21 @@
                         <form id="form">
                             <button type="button" id="close" onclick="hide()">X</button>
                             <br>
-                            <p1>Name:</p1>
+                            <p1>Organization Name:</p1>
                             <br>
                             <input id="name" name="name" type="text"/>
                             <br>
-                            <p1>Phone Number:</p1>
-                            <br>
-                            <input id="pnum" name="pnum" type="text"/>
-                            <br>
-                            <p1>Identification Card:</p1>
+                            <p1>Person In Charge Identification Card:</p1>
                             <br>
                             <input id="ic" name="ic" type="text"/>
                             <br>
-                            <p1>Person Incharge:</p1>
+                            <p1>Person In Charge Phone Number:</p1>
                             <br>
-                            <input id="pic" name="pic" type="text"/>
+                            <input id="pnum" name="pnum" type="text"/>
+                            <br>
+                            <p1>Person In Charge Email:</p1>
+                            <br>
+                            <input id="email" name="email" type="email"/>
                             <br>
                             <p1>Description:</p1>
                             <br>
@@ -481,14 +481,18 @@
                             <h3>Organization List</h3>
                         <table id="resultsTable" border="1" >
                             <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Person In Charge</th>
-                                    <th>Description</th>
-                                    <th>IC Number</th>
-                                    <th>Phone Number</th>
-                                    <th>Fund</th>
-                                </tr>
+                              <tr>
+                                <th rowspan="2">Name</th>
+                                <th rowspan="2">Description</th>
+                                <th rowspan="2">Wallet Address</th>
+                                <th colspan="3">Person In Charge</th>
+                                <th rowspan="2">Fund</th>
+                              </tr>
+                              <tr>
+                                <th>IC Number</th>
+                                <th>Phone Number</th>
+                                <th>Email</th>
+                              </tr>
                             </thead>
                             <tbody>
                             </tbody>
@@ -742,7 +746,7 @@
         function hide() {
             document.getElementById("popup").style.display = "none";
             document.getElementById("name").value = "";
-            document.getElementById("pic").value = "";
+            document.getElementById("email").value = "";
             document.getElementById("ic").value = "";
             document.getElementById("description").value = "";
             document.getElementById("pnum").value = "";
@@ -750,12 +754,13 @@
 
         function add() {
             var name = document.getElementById("name").value;
-            var pic = document.getElementById("pic").value;
+            var email = document.getElementById("email").value;
+            var walletAddress = "";
             var description = document.getElementById("description").value;
             var ic = document.getElementById("ic").value;
             var pnum = document.getElementById("pnum").value;
             
-            if (name == "" || pic == "" || description == "" || ic == "" || pnum == "") {
+            if (name == "" || description == "" || ic == "" || pnum == "" || email == "") {
                 alert("Please fill all fields.");
             } else {
                 document.getElementById("popup").style.display = "none";
@@ -765,17 +770,19 @@
                 var newRow = table.insertRow();
                 var nameCell = newRow.insertCell(0);
                 var descriptionCell = newRow.insertCell(1);
-                var picCell = newRow.insertCell(2);
+                var walletCell = newRow.insertCell(2);
                 var icCell = newRow.insertCell(3);
                 var pnumCell = newRow.insertCell(4);
-                var fundCell = newRow.insertCell(5);
+                var emailCell = newRow.insertCell(5);
+                var fundCell = newRow.insertCell(6);
                 
                 // Append the new values to the cells
                 nameCell.innerHTML = name;
                 descriptionCell.innerHTML = description;
-                picCell.innerHTML = pic;
+                walletCell.innerHTML = walletAddress;
                 icCell.innerHTML = ic;
                 pnumCell.innerHTML = pnum;
+                emailCell.innerHTML = email;
                 fundCell.innerHTML = `
             <a href="../pages/payment_charity.html" class="text-success font-weight-bold text-xs"
                data-toggle="tooltip" data-original-title="Edit user">
@@ -787,7 +794,7 @@
                 // Clear input fields
                 document.getElementById("name").value = "";
                 document.getElementById("description").value = "";
-                document.getElementById("pic").value = "";
+                document.getElementById("email").value = "";
                 document.getElementById("ic").value = "";
                 document.getElementById("pnum").value = "";
                 
