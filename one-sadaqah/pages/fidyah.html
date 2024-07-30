@@ -616,8 +616,8 @@
         this.transferAmount = this.transferInput.customAmount;
 
         const payload = {
-          wallet_address: window.env.wallet_address2,
-          to: window.env.wallet_address3,
+          wallet_address: window.env.wallet_address2, //from me
+          to: window.env.wallet_address3, //baitulmal
           amount: this.transferAmount,
           contract_address: window.env.transferContractAddress,
           callback_url: window.env.callbackUrl,
