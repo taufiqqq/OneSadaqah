@@ -14010,6 +14010,11 @@ fieldset:disabled .btn {
     margin-left: auto !important;
   }
 
+  .ms-md-left-gap {
+    margin-left: auto !important;
+    margin-right: 20px;
+  }
+
   .m-md-n1 {
     margin: -0.25rem !important;
   }
