@@ -14,68 +14,52 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png"/>
-    <link rel="icon" type="image/png" href="../assets/img/logo-onesadaqah.png" />
-    <title>
-      OneSadaqah
-    </title>
-    <!--     Fonts and icons     -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"
-    />
-    <!-- Nucleo Icons -->
-    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- Font Awesome Icons -->
-    <script
-      src="https://kit.fontawesome.com/42d5adcbca.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Material Icons -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
-      rel="stylesheet"
-    />
-    <!-- CSS Files -->
-    <link
-      id="pagestyle"
-      href="../assets/css/material-dashboard.css?v=3.1.0"
-      rel="stylesheet"
-    />
-    <!-- Nepcha Analytics (nepcha.com) -->
-    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
-    <script
-      defer
-      data-site="YOUR_DOMAIN_HERE"
-      src="https://api.nepcha.com/js/nepcha-analytics.js"
-    ></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="../config.js"></script>
 
-    <style>
-      #fidyah,
-      #zakat-lain {
-        display: none;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="../assets/img/logo-onesadaqah.png" />
+  <title>
+    OneSadaqah
+  </title>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+  <!-- Nepcha Analytics (nepcha.com) -->
+  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="../config.js"></script>
 
-  <body class="g-sidenav-show bg-gray-200">
-    <aside
+  <style>
+    #fidyah,
+    #zakat-lain {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="g-sidenav-show bg-gray-200">
+  <aside
     class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gray-900"
     id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
         aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" target="_blank">
-          <center><img src="../assets/img/logo-onesadaqah.png" class="navbar-brand-img h-100" alt="main_logo"></center>
-        </a>
+      <a class="navbar-brand m-0" target="_blank">
+        <center><img src="../assets/img/logo-onesadaqah.png" class="navbar-brand-img h-100" alt="main_logo"></center>
+      </a>
     </div>
     <hr class="horizontal light mt-0 mb-2">
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
@@ -134,456 +118,320 @@
       </ul>
     </div>
   </aside>
-    <main
-      class="main-content position-relative max-height-vh-100 h-100 border-radius-lg"
-      id="myApp"
-    >
-      <!-- Navbar -->
-      <nav
-        class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"
-        id="navbarBlur"
-        data-scroll="true"
-      >
-        <div class="container-fluid py-1 px-3">
-          <nav aria-label="breadcrumb">
-            <ol
-              class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5"
-            >
-              <li class="breadcrumb-item text-sm">
-                <a class="opacity-5 text-dark" href="javascript:;">Pages</a>
-              </li>
-              <li
-                class="breadcrumb-item text-sm text-dark active"
-                aria-current="page"
-              >
-                Zakat
-              </li>
-            </ol>
-            <h6 class="font-weight-bolder mb-0">Zakat</h6>
-          </nav>
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg" id="myApp">
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+      data-scroll="true">
+      <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm">
+              <a class="opacity-5 text-dark" href="javascript:;">Pages</a>
+            </li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">
+              Zakat
+            </li>
+          </ol>
+          <h6 class="font-weight-bolder mb-0">Zakat</h6>
+        </nav>
 
-          <div
-            class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"
-            id="navbar"
-          >
-            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-              <div class="input-group input-group-outline">
-                <div class="wallet-container d-flex align-items-center">
-                  <img
-                    src="../assets/img/icons8-wallet.png"
-                    alt="Wallet Icon"
-                    class="wallet-icon me-2"
-                  />
-                  <span class="wallet-balance">{{ tokenBalance }}</span>
-                </div>
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+            <div class="input-group input-group-outline">
+              <div class="wallet-container d-flex align-items-center">
+                <img src="../assets/img/icons8-wallet.png" alt="Wallet Icon" class="wallet-icon me-2" />
+                <span class="wallet-balance">{{ tokenBalance }}</span>
               </div>
             </div>
+          </div>
 
-            <ul class="navbar-nav justify-content-end">
-              <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-                <a
-                  href="javascript:;"
-                  class="nav-link text-body p-0"
-                  id="iconNavbarSidenav"
-                >
-                  <div class="sidenav-toggler-inner">
-                    <i class="sidenav-toggler-line"></i>
-                    <i class="sidenav-toggler-line"></i>
-                    <i class="sidenav-toggler-line"></i>
-                  </div>
-                </a>
-              </li>
-              <li class="nav-item px-3 d-flex align-items-center">
-                <a href="javascript:;" class="nav-link text-body p-0">
-                  <i
-                    class="fa fa-cog fixed-plugin-button-nav cursor-pointer"
-                  ></i>
-                </a>
-              </li>
-              <!-- notification drop down -->
-              <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                <a
-                  href="javascript:;"
-                  class="nav-link text-body p-0"
-                  id="dropdownMenuButton"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i class="fa fa-bell cursor-pointer"></i>
-                </a>
-                <ul
-                  class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4"
-                  aria-labelledby="dropdownMenuButton"
-                >
-                  <li class="mb-2">
-                    <a
-                      class="dropdown-item border-radius-md"
-                      href="javascript:;"
-                    >
-                      <div class="d-flex py-1">
-                        <div class="my-auto">
-                          <img
-                            src="../assets/img/team-2.jpg"
-                            class="avatar avatar-sm me-3"
-                          />
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="text-sm font-weight-normal mb-1">
-                            <span class="font-weight-bold">New message</span>
-                            from Laur
-                          </h6>
-                          <p class="text-xs text-secondary mb-0">
-                            <i class="fa fa-clock me-1"></i>
-                            13 minutes ago
-                          </p>
-                        </div>
+          <ul class="navbar-nav justify-content-end">
+            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item px-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0">
+                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
+              </a>
+            </li>
+            <!-- notification drop down -->
+            <li class="nav-item dropdown pe-2 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="fa fa-bell cursor-pointer"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+                <li class="mb-2">
+                  <a class="dropdown-item border-radius-md" href="javascript:;">
+                    <div class="d-flex py-1">
+                      <div class="my-auto">
+                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" />
                       </div>
-                    </a>
-                  </li>
-                  <li class="mb-2">
-                    <a
-                      class="dropdown-item border-radius-md"
-                      href="javascript:;"
-                    >
-                      <div class="d-flex py-1">
-                        <div class="my-auto">
-                          <img
-                            src="../assets/img/small-logos/logo-spotify.svg"
-                            class="avatar avatar-sm bg-gradient-dark me-3"
-                          />
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="text-sm font-weight-normal mb-1">
-                            <span class="font-weight-bold">New album</span> by
-                            Travis Scott
-                          </h6>
-                          <p class="text-xs text-secondary mb-0">
-                            <i class="fa fa-clock me-1"></i>
-                            1 day
-                          </p>
-                        </div>
+                      <div class="d-flex flex-column justify-content-center">
+                        <h6 class="text-sm font-weight-normal mb-1">
+                          <span class="font-weight-bold">New message</span>
+                          from Laur
+                        </h6>
+                        <p class="text-xs text-secondary mb-0">
+                          <i class="fa fa-clock me-1"></i>
+                          13 minutes ago
+                        </p>
                       </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-item border-radius-md"
-                      href="javascript:;"
-                    >
-                      <div class="d-flex py-1">
-                        <div
-                          class="avatar avatar-sm bg-gradient-secondary me-3 my-auto"
-                        >
-                          <svg
-                            width="12px"
-                            height="12px"
-                            viewBox="0 0 43 36"
-                            version="1.1"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                          >
-                            <title>credit-card</title>
-                            <g
-                              stroke="none"
-                              stroke-width="1"
-                              fill="none"
-                              fill-rule="evenodd"
-                            >
-                              <g
-                                transform="translate(-2169.000000, -745.000000)"
-                                fill="#FFFFFF"
-                                fill-rule="nonzero"
-                              >
-                                <g
-                                  transform="translate(1716.000000, 291.000000)"
-                                >
-                                  <g
-                                    transform="translate(453.000000, 454.000000)"
-                                  >
-                                    <path
-                                      class="color-background"
-                                      d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                                      opacity="0.593633743"
-                                    ></path>
-                                    <path
-                                      class="color-background"
-                                      d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"
-                                    ></path>
-                                  </g>
+                    </div>
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <a class="dropdown-item border-radius-md" href="javascript:;">
+                    <div class="d-flex py-1">
+                      <div class="my-auto">
+                        <img src="../assets/img/small-logos/logo-spotify.svg"
+                          class="avatar avatar-sm bg-gradient-dark me-3" />
+                      </div>
+                      <div class="d-flex flex-column justify-content-center">
+                        <h6 class="text-sm font-weight-normal mb-1">
+                          <span class="font-weight-bold">New album</span> by
+                          Travis Scott
+                        </h6>
+                        <p class="text-xs text-secondary mb-0">
+                          <i class="fa fa-clock me-1"></i>
+                          1 day
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item border-radius-md" href="javascript:;">
+                    <div class="d-flex py-1">
+                      <div class="avatar avatar-sm bg-gradient-secondary me-3 my-auto">
+                        <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
+                          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                          <title>credit-card</title>
+                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                              <g transform="translate(1716.000000, 291.000000)">
+                                <g transform="translate(453.000000, 454.000000)">
+                                  <path class="color-background"
+                                    d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
+                                    opacity="0.593633743"></path>
+                                  <path class="color-background"
+                                    d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                                  </path>
                                 </g>
                               </g>
                             </g>
-                          </svg>
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="text-sm font-weight-normal mb-1">
-                            Payment successfully completed
-                          </h6>
-                          <p class="text-xs text-secondary mb-0">
-                            <i class="fa fa-clock me-1"></i>
-                            2 days
-                          </p>
-                        </div>
+                          </g>
+                        </svg>
                       </div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item d-flex align-items-center">
-                <a
-                  href="../pages/profile.html"
-                  class="nav-link text-body font-weight-bold px-0">
-                  <i class="fa fa-user me-sm-1"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- End Navbar -->
-      <div class="container-fluid py-4">
-        <div class="row">
-          <div class="col-12">
-            <div class="card my-4">
-              <div
-                class="card-header p-0 position-relative mt-n4 mx-3 z-index-2"
-              >
-                <div
-                  class="bg-gradient-info shadow-info border-radius-lg pt-4 pb-3"
-                >
-                  <h6 class="text-white text-capitalize ps-3">
-                    Fill in Billing information
-                  </h6>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <form class="form-zakat">
-                    <label for="nama-penuh" class="form-label">Full Name</label>
-                    <div
-                      class="border card-plain border-radius-lg d-flex align-items-center"
-                    >
-                      <input
-                        type="text"
-                        class="form-control-zakat"
-                        id="nama-penuh"
-                        placeholder="Full Name"
-                        required
-                      />
+                      <div class="d-flex flex-column justify-content-center">
+                        <h6 class="text-sm font-weight-normal mb-1">
+                          Payment successfully completed
+                        </h6>
+                        <p class="text-xs text-secondary mb-0">
+                          <i class="fa fa-clock me-1"></i>
+                          2 days
+                        </p>
+                      </div>
                     </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <a href="../pages/profile.html" class="nav-link text-body font-weight-bold px-0">
+                <i class="fa fa-user me-sm-1"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-info shadow-info border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">
+                  Fill in Billing information
+                </h6>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <form class="form-zakat">
+                  <label for="nama-penuh" class="form-label">Full Name</label>
+                  <div class="border card-plain border-radius-lg d-flex align-items-center">
+                    <input type="text" class="form-control-zakat" id="nama-penuh" placeholder="Full Name" required />
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-md-0 mb-4">
+                      <label for="jenis-pengenalan">IC Type</label>
+                      <div class="border card-plain border-radius-lg d-flex align-items-center">
+                        <!-- <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required> -->
+                        <select class="form-select text-xs" id="jenis-pengenalan" required>
+                          <option selected>Choose IC Type</option>
+                          <option value="1">Kad Pengenalan Baru</option>
+                          <option value="2">Passport</option>
+                          <option value="3">Pendaftaran Syarikat</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="nombor-telefon">Phone Number</label>
+                      <div class="border card-plain border-radius-lg d-flex align-items-center">
+                        <input type="text" class="form-control-zakat" id="nombor-telefon" placeholder="Phone Number"
+                          required />
+                      </div>
+                    </div>
+                  </div>
+                  <label for="nombor-pengenalan">IC Number</label>
+                  <div class="border card-plain border-radius-lg d-flex align-items-center">
+                    <input type="text" class="form-control-zakat" id="nombor-pengenalan" placeholder="IC Number"
+                      required />
+                  </div>
+                  <label for="jenis-negeri">Choose State</label>
+                  <div class="border card-plain border-radius-lg d-flex align-items-center">
+                    <!-- <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required> -->
+                    <select class="form-select text-xs" id="jenis-negeri" required>
+                      <option selected>Choose State</option>
+                      <option value="1">Majlis Agama Islam Wilayah Persekutuan (MAIWP)</option>
+                      <option value="2">Majlis Agama Islam Selangor (MAIS)</option>
+                      <option value="3">Majlis Agama Islam Negeri Sembilan (MAINS)</option>
+                      <option value="4">Majlis Agama Islam Melaka (MAIM)</option>
+                      <option value="5">Majlis Agama Islam Johor (MAIJ)</option>
+                      <option value="6">Majlis Ugama Islam Pahang (MUIP)</option>
+                      <option value="7">Majlis Agama Islam dan Adat Melayu Terengganu (MAIDAM)</option>
+                      <option value="8">Majlis Agama Islam dan Adat Istiadat Melayu Kelantan (MAIK)</option>
+                      <option value="9">Majlis Agama Islam dan Adat Melayu Perlis (MAIPs)</option>
+                      <option value="10">Majlis Agama Islam Kedah (MAIK)</option>
+                      <option value="11">Majlis Agama Islam dan Adat Melayu Perak (MAIPk)</option>
+                      <option value="12">Majlis Agama Islam Pulau Pinang (MAINPP)</option>
+                      <option value="13">Majlis Ugama Islam Sabah</option>
+                      <option value="14">Majlis Islam Sarawak</option>
+                    </select>
+                  </div>
+                  <label for="jenis-zakat">Zakat Type</label>
+                  <div class="border card-plain border-radius-lg d-flex align-items-center">
+                    <!-- <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required> -->
+                    <select class="form-select text-xs" id="jenis-zakat" required>
+                      <option selected>Choose Zakat Type</option>
+                      <option value="1">Zakat Fitrah</option>
+                      <option value="2">Zakat Pendapatan</option>
+                      <option value="3">Zakat Perniagaan</option>
+                      <option value="4">Zakat Harta</option>
+                      <option value="5">Zakat Simpanan</option>
+                      <option value="6">Zakat Saham</option>
+                      <option value="7">Zakat KWSP</option>
+                      <option value="8">Zakat Emas</option>
+                      <option value="9">Zakat Perak</option>
+                      <option value="10">Qadha Zakat</option>
+                      <option value="11">Zakat Tanaman</option>
+                      <option value="12">Zakat Padi</option>
+                      <option value="13">Zakat Ternakan</option>
+                      <option value="14">Zakat Puasa</option>
+                    </select>
+                  </div>
+                  <div id="zakat-lain">
                     <div class="row">
                       <div class="col-md-6 mb-md-0 mb-4">
-                        <label for="jenis-pengenalan">IC Type</label>
-                        <div
-                          class="border card-plain border-radius-lg d-flex align-items-center"
-                        >
+                        <label for="tahun">Year</label>
+                        <div class="border card-plain border-radius-lg d-flex align-items-center">
                           <!-- <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required> -->
-                          <select
-                            class="form-select text-xs"
-                            id="jenis-pengenalan"
-                            required
-                          >
-                            <option selected>Choose IC Type</option>
-                            <option value="1">Kad Pengenalan Baru</option>
-                            <option value="2">Passport</option>
-                            <option value="3">Pendaftaran Syarikat</option>
+                          <select class="form-select text-xs" id="tahun" required>
+                            <option selected>Choose Year</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <label for="nombor-telefon">Phone Number</label>
-                        <div
-                          class="border card-plain border-radius-lg d-flex align-items-center"
-                        >
-                          <input
-                            type="text"
-                            class="form-control-zakat"
-                            id="nombor-telefon"
-                            placeholder="Phone Number"
-                            required
-                          />
+                        <label for="jumlah-bayaran">Total Payment (RM)</label>
+                        <div class="border card-plain border-radius-lg d-flex align-items-center">
+                          <input type="text" class="form-control" id="jumlah-bayaran"
+                            v-model="transferInput.customAmount" placeholder="0" required />
                         </div>
                       </div>
                     </div>
-                    <label for="nombor-pengenalan">IC Number</label>
-                    <div
-                      class="border card-plain border-radius-lg d-flex align-items-center"
-                    >
-                      <input
-                        type="text"
-                        class="form-control-zakat"
-                        id="nombor-pengenalan"
-                        placeholder="IC Number"
-                        required
-                      />
-                    </div>
-                    <label for="jenis-zakat">Zakat Type</label>
-                    <div
-                      class="border card-plain border-radius-lg d-flex align-items-center"
-                    >
-                      <!-- <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required> -->
-                      <select
-                        class="form-select text-xs"
-                        id="jenis-zakat"
-                        required
-                      >
-                        <option selected>Choose Zakat Type</option>
-                        <option value="1">Zakat Fitrah</option>
-                        <option value="2">Zakat Pendapatan</option>
-                        <option value="3">Zakat Perniagaan</option>
-                        <option value="4">Zakat Harta</option>
-                        <option value="5">Zakat Simpanan</option>
-                        <option value="6">Zakat Saham</option>
-                        <option value="7">Zakat KWSP</option>
-                        <option value="8">Zakat Emas</option>
-                        <option value="9">Zakat Perak</option>
-                        <option value="10">Qadha Zakat</option>
-                        <option value="11">Zakat Tanaman</option>
-                        <option value="12">Zakat Padi</option>
-                        <option value="13">Zakat Ternakan</option>
-                        <option value="14">Zakat Puasa</option>
-                      </select>
-                    </div>
-                    <div id="zakat-lain">
-                      <div class="row">
-                        <div class="col-md-6 mb-md-0 mb-4">
-                          <label for="tahun">Year</label>
-                          <div
-                            class="border card-plain border-radius-lg d-flex align-items-center"
-                          >
-                            <!-- <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required> -->
-                            <select
-                              class="form-select text-xs"
-                              id="tahun"
-                              required
-                            >
-                              <option selected>Choose Year</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <label for="jumlah-bayaran">Total Payment (RM)</label>
-                          <div
-                            class="border card-plain border-radius-lg d-flex align-items-center"
-                          >
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="jumlah-bayaran"
-                              v-model="transferInput.customAmount"
-                              placeholder="0"
-                              required
-                            />
-                          </div>
-                        </div>
+                  </div>
+                  <div id="fidyah">
+                    <label for="jenis-fidyah">Choose Fidyah Calculation</label>
+                    <div class="border card-plain border-radius-lg p-3">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="jenis-fidyah" id="jenis-fidyah-1" value="1"
+                          required />
+                        <label class="form-check-label" for="jenis-fidyah-1">
+                          Dengan gandaan (lebih digalakkan)
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="jenis-fidyah" id="jenis-fidyah2" value="2"
+                          required />
+                        <label class="form-check-label" for="jenis-fidyah2">
+                          Tiada gandaan
+                        </label>
                       </div>
                     </div>
-                    <div id="fidyah">
-                      <label for="jenis-fidyah"
-                        >Choose Fidyah Calculation</label
-                      >
-                      <div class="border card-plain border-radius-lg p-3">
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="jenis-fidyah"
-                            id="jenis-fidyah-1"
-                            value="1"
-                            required
-                          />
-                          <label class="form-check-label" for="jenis-fidyah-1">
-                            Dengan gandaan (lebih digalakkan)
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="jenis-fidyah"
-                            id="jenis-fidyah2"
-                            value="2"
-                            required
-                          />
-                          <label class="form-check-label" for="jenis-fidyah2">
-                            Tiada gandaan
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12">
-                      <button
-                        v-on:click="transferTokens()"
-                        class="btn btn-info"
-                      >
-                        Seterusnya
-                      </button>
-                      <button v-on:click="tunjukPopup()" class="btn">
-                        Calculator
-                      </button>
-                    </div>
-                  </form>
-                  <!-- ----------------------------------------------------------------------------- -->
-                </div>
+                  </div>
+                  <div class="col-12">
+                    <button v-on:click="transferTokens()" class="btn btn-info">
+                      Pay
+                    </button>
+                    <button v-on:click="tunjukPopup()" class="btn">
+                      Calculator
+                    </button>
+                  </div>
+                </form>
+                <!-- ----------------------------------------------------------------------------- -->
               </div>
-              <div v-if="showPopup" class="popup">
-                <div class="popup-content">
-                  <span class="close" @click="closePopup">&times;</span>
-                  <h4>Kiraan Zakat Wang Simpanan</h4>
-                  <div class="form-group">
-                    <label for="nisab">Amaun Nisab:</label>
-                    <input type="number" v-model="nisab" id="nisab" />
-                  </div>
-
-                  <h6>Tambah Kiraan Zakat Wang Simpanan</h6>
-                  <div class="form-group">
-                    <label for="bankName">Nama Bank:</label>
-                    <input type="text" v-model="bankName" id="bankName" />
-                  </div>
-                  <div class="form-group">
-                    <label for="bankBalance">Baki Akaun:</label>
-                    <input
-                      type="number"
-                      v-model="bankBalance"
-                      id="bankBalance"
-                    />
-                  </div>
-                  <button @click="addBankAccount">Tambah</button>
-
-                  <h6>Jumlah Zakat Wang Simpanan</h6>
-                  <div class="form-group">
-                    <label for="totalAssets">Jumlah Layak Di Zakat:</label>
-                    <input
-                      type="number"
-                      v-model="totalAssets"
-                      id="totalAssets"
-                      readonly
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="zakatAmount"
-                      >Jumlah Zakat (Hanya 2.5% setahun):</label
-                    >
-                    <input
-                      type="number"
-                      v-model="zakatAmount"
-                      id="zakatAmount"
-                      readonly
-                    />
-                  </div>
-
-                  <button @click="resetForm">Reset</button>
+            </div>
+            <div v-if="showPopup" class="popup">
+              <div class="popup-content">
+                <span class="close" @click="closePopup">&times;</span>
+                <h4>Kiraan Zakat Wang Simpanan</h4>
+                <div class="form-group">
+                  <label for="nisab">Amaun Nisab:</label>
+                  <input type="number" v-model="nisab" id="nisab" />
                 </div>
+
+                <h6>Tambah Kiraan Zakat Wang Simpanan</h6>
+                <div class="form-group">
+                  <label for="bankName">Nama Bank:</label>
+                  <input type="text" v-model="bankName" id="bankName" />
+                </div>
+                <div class="form-group">
+                  <label for="bankBalance">Baki Akaun:</label>
+                  <input type="number" v-model="bankBalance" id="bankBalance" />
+                </div>
+                <button @click="addBankAccount">Tambah</button>
+
+                <h6>Jumlah Zakat Wang Simpanan</h6>
+                <div class="form-group">
+                  <label for="totalAssets">Jumlah Layak Di Zakat:</label>
+                  <input type="number" v-model="totalAssets" id="totalAssets" readonly />
+                </div>
+                <div class="form-group">
+                  <label for="zakatAmount">Jumlah Zakat (Hanya 2.5% setahun):</label>
+                  <input type="number" v-model="zakatAmount" id="zakatAmount" readonly />
+                </div>
+
+                <button @click="resetForm">Reset</button>
               </div>
-              <!-- <div class="card-footer d-flex justify-content-between">
+            </div>
+            <!-- <div class="card-footer d-flex justify-content-between">
               <button type="button" class="btn btn-info"
                 onclick="window.location.href='../pages/Zakat_kaedah.html'">Seterusnya</button>
               <button type="button" class="btn btn-info">Semula</button>
             </div> -->
-            </div>
           </div>
         </div>
-        <!-- <footer class="footer py-4">
+      </div>
+      <!-- <footer class="footer py-4">
           <div class="container-fluid">
             <div class="row align-items-center justify-content-lg-between">
               <div class="col-lg-6 mb-lg-0 mb-4">
@@ -645,9 +493,9 @@
             </div>
           </div>
         </footer> -->
-      </div>
-    </main>
-    <!-- <div class="fixed-plugin">
+    </div>
+  </main>
+  <!-- <div class="fixed-plugin">
       <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
         <i class="material-icons py-2">settings</i>
       </a>
@@ -802,252 +650,253 @@
         </div>
       </div>
     </div> -->
-    <!--   Core JS Files   -->
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
-    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script>
-      var win = navigator.platform.indexOf("Win") > -1;
-      if (win && document.querySelector("#sidenav-scrollbar")) {
-        var options = {
-          damping: "0.5",
-        };
-        Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
-      }
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const select = document.getElementById("tahun");
-        const currentYear = new Date().getFullYear();
-
-        for (let year = currentYear; year >= 1900; year--) {
-          const option = document.createElement("option");
-          option.value = year;
-          option.textContent = year;
-          select.appendChild(option);
-        }
-      });
-    </script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const jenisZakatSelect = document.getElementById("jenis-zakat");
-        const fidyahDiv = document.getElementById("fidyah");
-        const zakatLainDiv = document.getElementById("zakat-lain");
-        const currentYear = new Date().getFullYear();
-        const tahunSelect = document.getElementById("tahun");
-
-        for (let year = currentYear; year >= 1900; year--) {
-          const option = document.createElement("option");
-          option.value = year;
-          option.textContent = year;
-          tahunSelect.appendChild(option);
-        }
-
-        jenisZakatSelect.addEventListener("change", function () {
-          if (jenisZakatSelect.value === "14") {
-            fidyahDiv.style.display = "block";
-            zakatLainDiv.style.display = "none";
-          } else {
-            fidyahDiv.style.display = "none";
-            zakatLainDiv.style.display = "block";
-          }
-        });
-      });
-    </script>
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
-  </body>
-
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script>
-    const vueApp = Vue.createApp({
-      data() {
-        return {
-          client_id: window.env.client_id,
-          client_secret: window.env.client_secret,
-          balanceWalletAddress: "",
-          balanceContractAddress: "",
-          tokenBalance: null,
-          transferInput: {
-            customAmount: "1",
-          },
-          transferWalletAddress: "",
-          transferToAddress: "",
-          transferContractAddress: "",
-          transferResponse: null,
-          callbackUrl: "",
-          showPopup: false,
-          year: new Date().getFullYear(),
-          nisab: 24198.0,
-          bankName: "",
-          bankBalance: 0,
-          accounts: [],
-          totalAssets: 0,
-          zakatAmount: 0,
-        };
-      },
-      mounted() {
-        this.fetchTokenBalance();
-      },
-      watch: {
-        totalAssets(newTotalAssets) {
-          this.zakatAmount =
-            newTotalAssets >= this.nisab
-              ? (newTotalAssets * 0.025).toFixed(2)
-              : 0;
-        },
-      },
-      methods: {
-        async fetchTokenBalance() {
-          const payload = {
-            wallet_address: window.env.wallet_address2,
-            contract_address: window.env.transferContractAddress,
-          };
+    var win = navigator.platform.indexOf("Win") > -1;
+    if (win && document.querySelector("#sidenav-scrollbar")) {
+      var options = {
+        damping: "0.5",
+      };
+      Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+    }
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const select = document.getElementById("tahun");
+      const currentYear = new Date().getFullYear();
 
-          try {
-            const res = await axios.post(
-              "https://service-testnet.maschain.com/api/token/balance",
-              payload,
-              {
-                headers: {
-                  client_id: this.client_id,
-                  client_secret: this.client_secret,
-                },
-              }
-            );
-
-            const rawBalance = parseFloat(res.data.result);
-
-            this.tokenBalance = rawBalance.toFixed(2) + " SDQ";
-          } catch (error) {
-            console.error("Error fetching token balance:", error);
-            this.tokenBalance = error.response
-              ? error.response.data
-              : "An error occurred";
-          }
-        },
-        async transferTokens() {
-          console.log(this.transferInput.customAmount);
-
-          if (!this.transferInput.customAmount) {
-            alert("Please fill in the amounts");
-            return;
-          }
-
-          this.transferAmount = this.transferInput.customAmount;
-
-          const payload = {
-            wallet_address: window.env.wallet_address2,
-            to: window.env.wallet_address3,
-            amount: this.transferAmount,
-            contract_address: window.env.transferContractAddress,
-            callback_url: window.env.callbackUrl,
-          };
-
-          try {
-            const res = await axios.post(
-              "https://service-testnet.maschain.com/api/token/token-transfer",
-              payload,
-              {
-                headers: {
-                  client_id: this.client_id,
-                  client_secret: this.client_secret,
-                },
-              }
-            );
-            this.transferResponse = res.data.result;
-            alert("Transfer successful!");
-          } catch (error) {
-            console.error("Error transferring tokens:", error);
-            this.transferResponse = error.response
-              ? error.response.data
-              : "An error occurred";
-            alert("Error transferring tokens. Please try again.");
-          }
-        },
-        closePopup() {
-          this.showPopup = false;
-        },
-
-        tunjukPopup() {
-          this.showPopup = true;
-        },
-        addBankAccount() {
-          if (this.bankName && this.bankBalance > 0) {
-            this.accounts.push({
-              name: this.bankName,
-              balance: this.bankBalance,
-            });
-            this.bankName = "";
-            this.bankBalance = 0;
-            this.calculateZakat();
-          }
-        },
-        calculateZakat() {
-          this.totalAssets = this.accounts.reduce(
-            (sum, account) => sum + account.balance,
-            0
-          );
-        },
-        payZakat() {
-          alert(`Bayar Zakat: RM ${this.zakatAmount}`);
-        },
-        resetForm() {
-          this.accounts = [];
-          this.totalAssets = 0;
-          this.zakatAmount = 0;
-        },
-      },
+      for (let year = currentYear; year >= 1900; year--) {
+        const option = document.createElement("option");
+        option.value = year;
+        option.textContent = year;
+        select.appendChild(option);
+      }
     });
-    vueApp.mount("#myApp");
   </script>
 
-  <style scoped>
-    .popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-    }
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const jenisZakatSelect = document.getElementById("jenis-zakat");
+      const fidyahDiv = document.getElementById("fidyah");
+      const zakatLainDiv = document.getElementById("zakat-lain");
+      const currentYear = new Date().getFullYear();
+      const tahunSelect = document.getElementById("tahun");
 
-    .popup-content {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      width: 400px;
-      position: relative;
-    }
+      for (let year = currentYear; year >= 1900; year--) {
+        const option = document.createElement("option");
+        option.value = year;
+        option.textContent = year;
+        tahunSelect.appendChild(option);
+      }
 
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-      font-size: 20px;
-    }
+      jenisZakatSelect.addEventListener("change", function () {
+        if (jenisZakatSelect.value === "14") {
+          fidyahDiv.style.display = "block";
+          zakatLainDiv.style.display = "none";
+        } else {
+          fidyahDiv.style.display = "none";
+          zakatLainDiv.style.display = "block";
+        }
+      });
+    });
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
+</body>
 
-    .form-group {
-      margin-bottom: 15px;
-    }
+<script>
+  const vueApp = Vue.createApp({
+    data() {
+      return {
+        client_id: window.env.client_id,
+        client_secret: window.env.client_secret,
+        balanceWalletAddress: "",
+        balanceContractAddress: "",
+        tokenBalance: null,
+        transferInput: {
+          customAmount: "1",
+        },
+        transferWalletAddress: "",
+        transferToAddress: "",
+        transferContractAddress: "",
+        transferResponse: null,
+        callbackUrl: "",
+        showPopup: false,
+        year: new Date().getFullYear(),
+        nisab: 24198.0,
+        bankName: "",
+        bankBalance: 0,
+        accounts: [],
+        totalAssets: 0,
+        zakatAmount: 0,
+      };
+    },
+    mounted() {
+      this.fetchTokenBalance();
+    },
+    watch: {
+      totalAssets(newTotalAssets) {
+        this.zakatAmount =
+          newTotalAssets >= this.nisab
+            ? (newTotalAssets * 0.025).toFixed(2)
+            : 0;
+      },
+    },
+    methods: {
+      async fetchTokenBalance() {
+        const payload = {
+          wallet_address: window.env.wallet_address2,
+          contract_address: window.env.transferContractAddress,
+        };
 
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-    }
+        try {
+          const res = await axios.post(
+            "https://service-testnet.maschain.com/api/token/balance",
+            payload,
+            {
+              headers: {
+                client_id: this.client_id,
+                client_secret: this.client_secret,
+              },
+            }
+          );
 
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      box-sizing: border-box;
-    }
-  </style>
+          const rawBalance = parseFloat(res.data.result);
+
+          this.tokenBalance = rawBalance.toFixed(2) + " SDQ";
+        } catch (error) {
+          console.error("Error fetching token balance:", error);
+          this.tokenBalance = error.response
+            ? error.response.data
+            : "An error occurred";
+        }
+      },
+      async transferTokens() {
+        console.log(this.transferInput.customAmount);
+
+        if (!this.transferInput.customAmount) {
+          alert("Please fill in the amounts");
+          return;
+        }
+
+        this.transferAmount = this.transferInput.customAmount;
+
+        const payload = {
+          wallet_address: window.env.wallet_address2,
+          to: window.env.wallet_address3,
+          amount: this.transferAmount,
+          contract_address: window.env.transferContractAddress,
+          callback_url: window.env.callbackUrl,
+        };
+
+        try {
+          const res = await axios.post(
+            "https://service-testnet.maschain.com/api/token/token-transfer",
+            payload,
+            {
+              headers: {
+                client_id: this.client_id,
+                client_secret: this.client_secret,
+              },
+            }
+          );
+          this.transferResponse = res.data.result;
+          alert("Transfer successful!");
+        } catch (error) {
+          console.error("Error transferring tokens:", error);
+          this.transferResponse = error.response
+            ? error.response.data
+            : "An error occurred";
+          alert("Error transferring tokens. Please try again.");
+        }
+      },
+      closePopup() {
+        this.showPopup = false;
+      },
+
+      tunjukPopup() {
+        this.showPopup = true;
+      },
+      addBankAccount() {
+        if (this.bankName && this.bankBalance > 0) {
+          this.accounts.push({
+            name: this.bankName,
+            balance: this.bankBalance,
+          });
+          this.bankName = "";
+          this.bankBalance = 0;
+          this.calculateZakat();
+        }
+      },
+      calculateZakat() {
+        this.totalAssets = this.accounts.reduce(
+          (sum, account) => sum + account.balance,
+          0
+        );
+      },
+      payZakat() {
+        alert(`Bayar Zakat: RM ${this.zakatAmount}`);
+      },
+      resetForm() {
+        this.accounts = [];
+        this.totalAssets = 0;
+        this.zakatAmount = 0;
+      },
+    },
+  });
+  vueApp.mount("#myApp");
+</script>
+
+<style scoped>
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    position: relative;
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+</style>
+
 </html>
