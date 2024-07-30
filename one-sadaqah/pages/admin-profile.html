@@ -487,6 +487,7 @@
                                     <th>Description</th>
                                     <th>IC Number</th>
                                     <th>Phone Number</th>
+                                    <th>Fund</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -767,6 +768,7 @@
                 var picCell = newRow.insertCell(2);
                 var icCell = newRow.insertCell(3);
                 var pnumCell = newRow.insertCell(4);
+                var fundCell = newRow.insertCell(5);
                 
                 // Append the new values to the cells
                 nameCell.innerHTML = name;
@@ -774,6 +776,12 @@
                 picCell.innerHTML = pic;
                 icCell.innerHTML = ic;
                 pnumCell.innerHTML = pnum;
+                fundCell.innerHTML = `
+            <a href="../pages/payment_charity.html" class="text-success font-weight-bold text-xs"
+               data-toggle="tooltip" data-original-title="Edit user">
+               Add Fund
+            </a>
+        `;
                 
                 
                 // Clear input fields
