@@ -45,7 +45,7 @@
 
   <style>
     .table-container {
-      max-width: 100%;
+      width: 100%;
       margin: 0 auto;
       padding: 20px;
       background: #f5f7fa;
@@ -54,17 +54,18 @@
       /* Rounded corners for the container */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       /* Subtle shadow for depth */
-      overflow: hidden;
-      /* Ensures no overflow */
+      box-sizing: border-box;
+      /* Ensures padding is included in the width */
+      overflow-x: auto;
+      /* Allows horizontal scrolling if necessary */
     }
 
     .table-wrapper {
       width: 100%;
-      overflow: hidden;
-      /* Ensures no overflow */
+      overflow-x: auto;
+      /* Allows horizontal scrolling if necessary */
       margin-bottom: 20px;
       /* Space between tables */
-      border-radius: 8px;
     }
 
     table {
@@ -72,10 +73,6 @@
       border-collapse: collapse;
       background: #ffffff;
       /* White background for table */
-      border-radius: 8px;
-      /* Rounded corners for the table */
-      overflow: hidden;
-      /* Ensures rounded corners are visible */
     }
 
     th,
@@ -83,14 +80,14 @@
       border: 1px solid #ddd;
       padding: 12px;
       /* Increased padding for more space */
-      font-size: 13px;
+      font-size: 14px;
       /* Increased font size for better readability */
       text-align: center;
       /* Centered text */
     }
 
     th {
-      background-color: #1A73E8;
+      background-color: #6c7ae0;
       /* Soft blue background for headers */
       color: #ffffff;
       /* White text for headers */
@@ -111,7 +108,7 @@
 
     h2,
     h3 {
-      /* text-align: center; */
+      text-align: center;
       /* Centered headings */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       /* Modern font family */
@@ -144,6 +141,82 @@
       /* Light gray text color */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       /* Modern font family */
+    }
+
+    /* Responsive design */
+    @media screen and (max-width: 768px) {
+
+      th,
+      td {
+        padding: 8px;
+        /* Reduce padding on smaller screens */
+        font-size: 12px;
+        /* Reduce font size on smaller screens */
+      }
+
+      th,
+      td {
+        display: block;
+        /* Make table cells block-level */
+        width: 100%;
+        /* Make cells take full width */
+        box-sizing: border-box;
+        /* Include padding in width */
+      }
+
+      th {
+        text-align: right;
+        /* Align header text to the right */
+        padding-right: 20%;
+        /* Adjust padding for alignment */
+      }
+
+      td {
+        text-align: left;
+        /* Align data text to the left */
+        padding-left: 20%;
+        /* Adjust padding for alignment */
+        position: relative;
+        /* Relative positioning for labels */
+      }
+
+      td::before {
+        content: attr(data-label);
+        /* Display the header label */
+        position: absolute;
+        left: 0;
+        width: 20%;
+        /* Width for the label */
+        padding-left: 8px;
+        /* Padding for the label */
+        font-weight: bold;
+        /* Bold for emphasis */
+        white-space: nowrap;
+        /* Prevent label wrapping */
+      }
+
+      h2 {
+        font-size: 20px;
+        /* Reduce heading size on smaller screens */
+      }
+
+      h3 {
+        font-size: 18px;
+        /* Reduce subheading size on smaller screens */
+      }
+
+      .container-change-view {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        /* This makes sure the container takes the full height */
+      }
+
+      .btn {
+        margin-top: auto;
+        /* Pushes the button to the bottom */
+      }
+
     }
   </style>
 </head>
@@ -228,7 +301,7 @@
           </ol>
           <h6 class="font-weight-bolder mb-0">Profile</h6>
         </nav>
-
+        <!-- left side -->
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
 
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -362,17 +435,16 @@
             </div>
           </div>
           <div class="col-auto my-auto">
-            <div class="h-100">
-              <h5 class="mb-1">
-                Richard Davis
-              </h5>
-              <p class="mb-0 font-weight-normal text-sm">
-                CEO / Co-Founder
-              </p>
+            <div class="container-change-view">
+              <h5 class="mb-1">Richard Davis</h5>
+              <p class="mb-0 font-weight-normal text-sm">CEO / Co-Founder</p>
             </div>
           </div>
+          <div class="col-auto my-auto ms-md-auto">
+            <a class="btn btn-info" style="align-self: flex-end; margin-top: auto;" href="admin-profile.html">Change
+              View</a>
+          </div>
         </div>
-
         <div class="table-container">
           <h2>Transactions History</h2>
           <div class="transaction-container">
@@ -452,6 +524,8 @@
             </div>
           </div>
         </div>
+
+
 
       </div>
       <!-- <footer class="footer py-4  ">
