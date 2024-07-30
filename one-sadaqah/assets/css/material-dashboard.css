@@ -27996,6 +27996,47 @@ pre[class*="language-"] {
   width: 11px;
 }
 
+.transaction-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap as needed */
+}
+.transaction-container > div {
+  flex: 1;
+  min-width: 300px; /* Adjust the minimum width as needed */
+}
+
+.transaction-list {
+  max-height: 900px; /* Adjust the height as needed */
+  overflow-y: auto;
+padding-right: 15px; /* To avoid content hiding behind the scrollbar */
+}
+
+/* Styling the scrollbar */
+.transaction-list::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+.transaction-list::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.transaction-list::-webkit-scrollbar-thumb {
+  background: #888; /* Scrollbar thumb color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.transaction-list::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Scrollbar thumb color on hover */
+}
+
+/* For Firefox */
+.transaction-list {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
 /* MS supports */
 @supports (-ms-overflow-style: none) {
   .ps {

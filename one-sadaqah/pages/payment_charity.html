@@ -460,35 +460,49 @@
             </div>
           </div>
         </div>
-        <p>This project aims to solve everyday problems with an efficient and sustainable solution. With your support,
+        <h4>Giving To Those Who Needs</h4>
+        <p class="mb-4">This project aims to solve everyday problems with an efficient and sustainable solution. With your support,
           we can bring this project to life and make a positive impact.</p>
 
         <!-- Display results in a table -->
-        <div v-if="transactions.length">
-          <h2>Transactions</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>From</th>
-                <th>To</th>
-                <th>Amount</th>
-                <th>Timestamp</th>
-                <th>Transaction ID</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="transaction in transactions" :key="transaction.transactionHash">
-                <td>{{ transaction.from }}</td>
-                <td>{{ transaction.to }}</td>
-                <td>{{ (transaction.amount).substring(0,transaction.amount.length-18) }} {{ transaction.token.symbol }}</td>
-                <td>{{ transaction.timestamp }}</td>
-                <td>{{ transaction.transactionHash }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div v-else>
-          <p>No transactions found.</p>
+        <div class="table-container">
+          <div class="transaction-container">
+            <div v-if="transactions.length" class="col-lg-7 col-md-6">
+              <div class="card h-100">
+                <div class="card-header pb-0 bg-gradient-info">
+                  <h4 class="text-white">Charity Transaction</h4>
+                </div>
+                <div class="card-body p-3 transaction-list">
+                  <div v-for="transaction in transactions" :key="transactions.transactionHash" class="card-body p-3">
+                    <div class="timeline timeline-one-side">
+                      <div class="timeline-block mb-3">
+                        <span class="timeline-step">
+                          <i class="material-icons text-dark text-gradient">payments</i>
+                        </span>
+                        <div class="timeline-content">
+                          <h6 class="text-dark text-sm font-weight-bold mb-0">Transaction ID</h6>
+                          <p class="text-secondary font-weight-bold text-xs mt-1 mb-2">{{ transaction.transactionHash }}
+                          </p>
+                          <h6 class="text-dark text-sm font-weight-bold mb-0">To</h6>
+                          <p class="text-secondary font-weight-bold text-xs mt-1 mb-2">{{ transaction.to }}</p>
+                          <h6 class="text-dark text-sm font-weight-bold mb-0">Amount</h6>
+                          <p class="text-secondary font-weight-bold text-xs mt-1 mb-2">{{
+                            (transaction.amount).substring(0,transaction.amount.length-18) }} {{
+                            transaction.token.symbol
+                            }}</p>
+                          <h6 class="text-dark text-sm font-weight-bold mb-0">Date and Time</h6>
+                          <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{ transaction.timestamp }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div v-else>
+              <p>No Charity transactions available.</p>
+            </div>
+          </div>
         </div>
 
       </div>
