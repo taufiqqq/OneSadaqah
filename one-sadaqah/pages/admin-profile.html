@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,182 +21,190 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
-  
+
 </head>
-  <!-- Nepcha Analytics (nepcha.com) -->
-  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
-  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="../config.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Nepcha Analytics (nepcha.com) -->
+<!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+<script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../config.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-  <style>
-    .table-container {
-      
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 20px;
-      background: #f5f7fa;
-      /* Soft background color */
-      border-radius: 8px;
-      /* Rounded corners for the container */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      /* Subtle shadow for depth */
-      overflow: hidden;
-      /* Ensures no overflow */
-    }
+<style>
+  .table-container {
 
-    .table-wrapper {
-      width: 100%;
-      overflow: hidden;
-      /* Ensures no overflow */
-      margin-bottom: 20px;
-      /* Space between tables */
-      border-radius: 8px;
-    }
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f5f7fa;
+    /* Soft background color */
+    border-radius: 8px;
+    /* Rounded corners for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    overflow: hidden;
+    /* Ensures no overflow */
+  }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #ffffff;
-      /* White background for table */
-      border-radius: 8px;
-      /* Rounded corners for the table */
-      overflow: hidden;
-      /* Ensures rounded corners are visible */
-    }
+  .table-wrapper {
+    width: 100%;
+    overflow: hidden;
+    /* Ensures no overflow */
+    margin-bottom: 20px;
+    /* Space between tables */
+    border-radius: 8px;
+  }
 
-    th,
-    td {
-      border: 1px solid #ddd;
-      padding: 12px;
-      /* Increased padding for more space */
-      font-size: 13px;
-      /* Increased font size for better readability */
-      text-align: center;
-      /* Centered text */
-    }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    /* White background for table */
+    border-radius: 8px;
+    /* Rounded corners for the table */
+    overflow: hidden;
+    /* Ensures rounded corners are visible */
+  }
 
-    th {
-      background-color: #6c7ae0;
-      /* Soft blue background for headers */
-      color: #ffffff;
-      /* White text for headers */
-      text-transform: uppercase;
-      /* Uppercase headers */
-      font-weight: 600;
-      /* Bold headers */
-    }
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    /* Increased padding for more space */
+    font-size: 13px;
+    /* Increased font size for better readability */
+    text-align: center;
+    /* Centered text */
+  }
 
-    tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
+  th {
+    background-color: #6c7ae0;
+    /* Soft blue background for headers */
+    color: #ffffff;
+    /* White text for headers */
+    text-transform: uppercase;
+    /* Uppercase headers */
+    font-weight: 600;
+    /* Bold headers */
+  }
 
-    tr:hover {
-      background-color: #e0e7ff;
-      /* Light blue background on hover */
-    }
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
 
-    h2,
-    h3 {
-      text-align: center;
-      /* Centered headings */
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      /* Modern font family */
-      color: #333;
-      /* Dark gray text color */
-    }
+  tr:hover {
+    background-color: #e0e7ff;
+    /* Light blue background on hover */
+  }
 
-    h2 {
-      font-size: 24px;
-      /* Larger font size for main heading */
-      margin-bottom: 20px;
-      /* Space below main heading */
-    }
+  h2,
+  h3 {
+    text-align: center;
+    /* Centered headings */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Modern font family */
+    color: #333;
+    /* Dark gray text color */
+  }
 
-    h3 {
-      font-size: 20px;
-      /* Larger font size for subheadings */
-      margin-top: 20px;
-      /* Space above subheadings */
-      margin-bottom: 10px;
-      /* Space below subheadings */
-    }
+  h2 {
+    font-size: 24px;
+    /* Larger font size for main heading */
+    margin-bottom: 20px;
+    /* Space below main heading */
+  }
 
-    p {
-      text-align: center;
-      /* Centered text */
-      font-size: 16px;
-      /* Increased font size for paragraph text */
-      color: #777;
-      /* Light gray text color */
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      /* Modern font family */
-    }
+  h3 {
+    font-size: 20px;
+    /* Larger font size for subheadings */
+    margin-top: 20px;
+    /* Space above subheadings */
+    margin-bottom: 10px;
+    /* Space below subheadings */
+  }
 
-    button {
-            width: 150px;
-            height: 40px;
-            border-radius: 5px;
-        }
-        #popup {
-            display: none;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            position: fixed;
-            background-color: rgba(50, 50, 50, 0.9);
-        }
-        #form {
-            position: absolute;
-            background-color: #f5f5f5;
-            border: 1px solid #212121;
-            border-radius: 10px;
-            padding: 20px;
-            width: 400px;
-            left: 50%;
-            top: 10%;
-            margin-left: -150px;
-        }
-        input {
-            width: 350px;
-            margin-bottom: 20px;
-        }
-        textarea {
-            width: 350px;
-            margin-bottom: 20px;
-        }
-        #close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-weight: bold;
-            width: 30px;
-            height: 27px;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        p1 {
-            float: left;
-            margin-left: 30px;
-        }
-        .cont {
-            background-color: #e3f2fd;
-            border-radius: 2px;
-            padding: 20px 50px;
-            width: 350px;
-            margin: 10px auto 10px auto;
-            text-align: left;
-            overflow: auto;
-        }
-        #add {
-            margin: 10px;
-        }
-  </style>
+  p {
+    text-align: center;
+    /* Centered text */
+    font-size: 16px;
+    /* Increased font size for paragraph text */
+    color: #777;
+    /* Light gray text color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Modern font family */
+  }
+
+  button {
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+  }
+
+  #popup {
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: rgba(50, 50, 50, 0.9);
+  }
+
+  #form {
+    position: absolute;
+    background-color: #f5f5f5;
+    border: 1px solid #212121;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    left: 50%;
+    top: 10%;
+    margin-left: -150px;
+  }
+
+  input {
+    width: 350px;
+    margin-bottom: 20px;
+  }
+
+  textarea {
+    width: 350px;
+    margin-bottom: 20px;
+  }
+
+  #close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    width: 30px;
+    height: 27px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  p1 {
+    float: left;
+    margin-left: 30px;
+  }
+
+  .cont {
+    background-color: #e3f2fd;
+    border-radius: 2px;
+    padding: 20px 50px;
+    width: 350px;
+    margin: 10px auto 10px auto;
+    text-align: left;
+    overflow: auto;
+  }
+
+  #add {
+    margin: 10px;
+  }
+</style>
 </head>
 
 <body class="g-sidenav-show bg-gray-200">
@@ -207,9 +214,9 @@
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
         aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" target="_blank">
-          <center><img src="../assets/img/logo-onesadaqah.png" class="navbar-brand-img h-100" alt="main_logo"></center>
-        </a>
+      <a class="navbar-brand m-0" target="_blank">
+        <center><img src="../assets/img/logo-onesadaqah.png" class="navbar-brand-img h-100" alt="main_logo"></center>
+      </a>
     </div>
     <hr class="horizontal light mt-0 mb-2">
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
@@ -401,7 +408,7 @@
       </div>
     </nav>
     <!-- End Navbar -->
-     
+
     <div class="container-fluid px-2 px-md-4">
       <div class="page-header min-height-300 border-radius-xl mt-4"
         style="background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
@@ -425,65 +432,78 @@
             </div>
           </div>
         </div>
-            <div class="row gx-4 mb-2"> 
-                <div class="col-auto my-auto">
-                    <button id="add" onclick="show()">Add Organization </button>
-                    
-                    <div id="popup">
-                        
-                        <form id="form">
-                            <button type="button" id="close" onclick="hide()">X</button>
-                            <br>
-                            <p1>Organization Name:</p1>
-                            <br>
-                            <input id="name" name="name" type="text"/>
-                            <br>
-                            <p1>Person In Charge Identification Card:</p1>
-                            <br>
-                            <input id="ic" name="ic" type="text"/>
-                            <br>
-                            <p1>Person In Charge Phone Number:</p1>
-                            <br>
-                            <input id="pnum" name="pnum" type="text"/>
-                            <br>
-                            <p1>Person In Charge Email:</p1>
-                            <br>
-                            <input id="email" name="email" type="email"/>
-                            <br>
-                            <p1>Description:</p1>
-                            <br>
-                            <textarea id="description" name="description" type="text" rows="4" ></textarea>
-                            <br>
-                            
-                            <button type="button" id="submit" onclick="add()">Submit</button>
-                        </form>
-                    </div>
-                    <div id="results">
-                        <div class="table-container">
-                            <h3>Organization List</h3>
-                        <table id="resultsTable" border="1" >
-                            <thead>
-                              <tr>
-                                <th rowspan="2">Name</th>
-                                <th rowspan="2">Description</th>
-                                <th rowspan="2">Wallet Address</th>
-                                <th colspan="3">Person In Charge</th>
-                                <th rowspan="2">Fund</th>
-                              </tr>
-                              <tr>
-                                <th>IC Number</th>
-                                <th>Phone Number</th>
-                                <th>Email</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+        <div class="row gx-4 mb-2">
+          <div class="col-auto my-auto">
+            <button id="add" onclick="show()">Add Organization </button>
+
+            <div id="popup">
+
+              <form id="form">
+                <button type="button" id="close" onclick="hide()">X</button>
+                <br>
+                <p1>Organization Name:</p1>
+                <br>
+                <input id="name" name="name" type="text" />
+                <br>
+                <p1>Person In Charge Identification Card:</p1>
+                <br>
+                <input id="pic_ic" name="ic" type="text" />
+                <br>
+                <p1>Person In Charge Phone Number:</p1>
+                <br>
+                <input id="pic_pnum" name="pnum" type="text" />
+                <br>
+                <p1>Person In Charge Email:</p1>
+                <br>
+                <input id="pic_email" name="email" type="email" />
+                <br>
+                <p1>Description:</p1>
+                <br>
+                <textarea id="description" name="description" type="text" rows="4"></textarea>
+                <br>
+                <input type="hidden" id="adminref" name="adminref" value="1">
+
+                <button type="button" id="submit" onclick="add()">Submit</button>
+              </form>
+            </div>
+            <div id="results">
+              <div class="table-container">
+                <h3>Organization List</h3>
+                <table id="resultsTable" border="1">
+                  <thead>
+                    <tr>
+                      <th rowspan="2">Name</th>
+                      <th rowspan="2">Description</th>
+                      <th rowspan="2">Wallet Address</th>
+                      <th colspan="3">Person In Charge</th>
+                      <th rowspan="2">Fund</th>
+                    </tr>
+                    <tr>
+                      <th>IC Number</th>
+                      <th>Phone Number</th>
+                      <th>Email</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="org in organizations" :key="org.id">
+                      <td>{{ org.name }}</td>
+                      <td>{{ org.description }}</td>
+                      <td>{{ org.wallet_address }}</td>
+                      <td>{{ org.pic_ic }}</td>
+                      <td>{{ org.pic_pnum }}</td>
+                      <td>{{ org.pic_email }}</td>
+                      <td>
+                        <a href="../pages/payment_charity.html" class="text-success font-weight-bold text-xs"
+                          data-toggle="tooltip" data-original-title="Edit user">Add Fund</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-          <br>
+        </div>
+        <br>
         <div class="table-container">
           <h2>Transactions History</h2>
           <h3>Charity</h3>
@@ -514,8 +534,8 @@
             <p>No Zakat transactions available.</p>
           </div>
 
-            <br>
-            <br>
+          <br>
+          <br>
           <div v-if="transactionsZakat.length">
             <h3>Zakat</h3>
             <div class="table-wrapper">
@@ -549,239 +569,291 @@
 
       </div>
     </div>
-      
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
+    </head>
     <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
-            };
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
+      var win = navigator.platform.indexOf('Win') > -1;
+      if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+          damping: '0.5'
+        };
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+      }
     </script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
 
     <!-- Vue.js App -->
     <script>
-        const vueApp = Vue.createApp({
-            data() {
-                return {
-                    client_id: window.env.client_id,
-                    client_secret: window.env.client_secret,
-                    balanceWalletAddress: "",
-                    balanceContractAddress: "",
-                    tokenBalance: null,
-                    transferInput: {
-                        customAmount: "1",
-                    },
-                    transferWalletAddress: "",
-                    transferToAddress: "",
-                    transferAmount: "",
-                    transferContractAddress: "",
-                    callbackUrl: "",
-                    transferResponse: null,
-                    transactionFilter: "to",
-                    transactions: [],
-                    transactionsZakat: [],
-                };
+      const vueApp = Vue.createApp({
+        data() {
+          return {
+            client_id: window.env.client_id,
+            client_secret: window.env.client_secret,
+            balanceWalletAddress: "",
+            balanceContractAddress: "",
+            tokenBalance: null,
+            transferInput: {
+              customAmount: "1",
             },
-            mounted() {
-                this.fetchTokenBalance();
-                this.fetchTransactions();
-                this.fetchTransactionsZakat();
-            },
-            methods: {
-                async fetchTokenBalance() {
-                    const payload = {
-                        wallet_address: window.env.wallet_address2,
-                        contract_address: window.env.transferContractAddress,
-                    };
+            transferWalletAddress: "",
+            transferToAddress: "",
+            transferAmount: "",
+            transferContractAddress: "",
+            callbackUrl: "",
+            transferResponse: null,
+            transactionFilter: "to",
+            transactions: [],
+            transactionsZakat: [],
+            organizations: [],
+          };
+        },
+        mounted() {
+          this.fetchTokenBalance();
+          this.fetchTransactions();
+          this.fetchTransactionsZakat();
+          this.fetchOrganizations();
+        },
+        methods: {
+          async fetchTokenBalance() {
+            const payload = {
+              wallet_address: window.env.wallet_address2,
+              contract_address: window.env.transferContractAddress,
+            };
 
-                    try {
-                        const res = await axios.post(
-                            "https://service-testnet.maschain.com/api/token/balance",
-                            payload,
-                            {
-                                headers: {
-                                    client_id: this.client_id,
-                                    client_secret: this.client_secret,
-                                },
-                            }
-                        );
+            try {
+              const res = await axios.post(
+                "https://service-testnet.maschain.com/api/token/balance",
+                payload,
+                {
+                  headers: {
+                    client_id: this.client_id,
+                    client_secret: this.client_secret,
+                  },
+                }
+              );
 
-                        const rawBalance = parseFloat(res.data.result);
+              const rawBalance = parseFloat(res.data.result);
 
-                        this.tokenBalance = rawBalance.toFixed(2) + ' SDQ';
-                    } catch (error) {
-                        console.error("Error fetching token balance:", error);
-                        this.tokenBalance = error.response ? error.response.data : "An error occurred";
-                    }
-                },
-                async transferTokens() {
-                    console.log(this.transferInput.customAmount);
+              this.tokenBalance = rawBalance.toFixed(2) + ' SDQ';
+            } catch (error) {
+              console.error("Error fetching token balance:", error);
+              this.tokenBalance = error.response ? error.response.data : "An error occurred";
+            }
+          },
+          async transferTokens() {
+            console.log(this.transferInput.customAmount);
 
-                    if (!this.transferInput.customAmount) {
-                        alert("Please fill in the amounts");
-                        return;
-                    }
+            if (!this.transferInput.customAmount) {
+              alert("Please fill in the amounts");
+              return;
+            }
 
-                    this.transferAmount = this.transferInput.customAmount;
+            this.transferAmount = this.transferInput.customAmount;
 
-                    const payload = {
-                        wallet_address: window.env.wallet_address2,
-                        to: window.env.transferToAddress1,
-                        amount: this.transferAmount,
-                        contract_address: window.env.transferContractAddress,
-                        callback_url: window.env.callbackUrl,
-                    };
+            const payload = {
+              wallet_address: window.env.wallet_address2,
+              to: window.env.transferToAddress1,
+              amount: this.transferAmount,
+              contract_address: window.env.transferContractAddress,
+              callback_url: window.env.callbackUrl,
+            };
 
-                    try {
-                        const res = await axios.post(
-                            "https://service-testnet.maschain.com/api/token/token-transfer",
-                            payload,
-                            {
-                                headers: {
-                                    client_id: this.client_id,
-                                    client_secret: this.client_secret,
-                                },
-                            }
-                        );
-                        this.transferResponse = res.data.result;
-                        alert("Transfer successful!");
-                    } catch (error) {
-                        console.error("Error transferring tokens:", error);
-                        this.transferResponse = error.response ? error.response.data : "An error occurred";
-                        alert("Error transferring tokens. Please try again.");
-                    }
-                },
-                async fetchTransactions() {
-                    const walletAddress = window.env.transferToAddress1;
-                    const contractAddress = window.env.transferContractAddress;
-                    const filter = 'to'; // or 'from'
+            try {
+              const res = await axios.post(
+                "https://service-testnet.maschain.com/api/token/token-transfer",
+                payload,
+                {
+                  headers: {
+                    client_id: this.client_id,
+                    client_secret: this.client_secret,
+                  },
+                }
+              );
+              this.transferResponse = res.data.result;
+              alert("Transfer successful!");
+            } catch (error) {
+              console.error("Error transferring tokens:", error);
+              this.transferResponse = error.response ? error.response.data : "An error occurred";
+              alert("Error transferring tokens. Please try again.");
+            }
+          },
+          async fetchTransactions() {
+            const walletAddress = window.env.transferToAddress1;
+            const contractAddress = window.env.transferContractAddress;
+            const filter = 'to'; // or 'from'
 
-                    const url = `https://service-testnet.maschain.com/api/token/get-token-transaction?wallet_address=${encodeURIComponent(walletAddress)}&contract_address=${encodeURIComponent(contractAddress)}&filter=${encodeURIComponent(filter)}`;
+            const url = `https://service-testnet.maschain.com/api/token/get-token-transaction?wallet_address=${encodeURIComponent(walletAddress)}&contract_address=${encodeURIComponent(contractAddress)}&filter=${encodeURIComponent(filter)}`;
 
-                    try {
-                        const response = await fetch(url, {
-                            headers: {
-                                'client_id': this.client_id,
-                                'client_secret': this.client_secret,
-                                'content-type': 'application/json'
-                            }
-                        });
+            try {
+              const response = await fetch(url, {
+                headers: {
+                  'client_id': this.client_id,
+                  'client_secret': this.client_secret,
+                  'content-type': 'application/json'
+                }
+              });
 
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
 
-                        const data = await response.json();
-                        this.transactions = data.result || [];
-                    } catch (error) {
-                        console.error('Error fetching transactions:', error);
-                    }
-                },
-                async fetchTransactionsZakat() {
-                    const walletAddress = window.env.wallet_address3;
-                    const contractAddress = window.env.transferContractAddress;
-                    const filter = 'to'; // or 'from'
+              const data = await response.json();
+              this.transactions = data.result || [];
+            } catch (error) {
+              console.error('Error fetching transactions:', error);
+            }
+          },
+          async fetchTransactionsZakat() {
+            const walletAddress = window.env.wallet_address3;
+            const contractAddress = window.env.transferContractAddress;
+            const filter = 'to'; // or 'from'
 
-                    const url = `https://service-testnet.maschain.com/api/token/get-token-transaction?wallet_address=${encodeURIComponent(walletAddress)}&contract_address=${encodeURIComponent(contractAddress)}&filter=${encodeURIComponent(filter)}`;
+            const url = `https://service-testnet.maschain.com/api/token/get-token-transaction?wallet_address=${encodeURIComponent(walletAddress)}&contract_address=${encodeURIComponent(contractAddress)}&filter=${encodeURIComponent(filter)}`;
 
-                    try {
-                        const response = await fetch(url, {
-                            headers: {
-                                'client_id': this.client_id,
-                                'client_secret': this.client_secret,
-                                'content-type': 'application/json'
-                            }
-                        });
+            try {
+              const response = await fetch(url, {
+                headers: {
+                  'client_id': this.client_id,
+                  'client_secret': this.client_secret,
+                  'content-type': 'application/json'
+                }
+              });
 
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
 
-                        const data = await response.json();
-                        this.transactionsZakat = data.result || [];
-                    } catch (error) {
-                        console.error('Error fetching transactions:', error);
-                    }
-                },
-            },
-        });
-        vueApp.mount("#myApp");
+              const data = await response.json();
+              this.transactionsZakat = data.result || [];
+            } catch (error) {
+              console.error('Error fetching transactions:', error);
+            }
+          },
+          async fetchOrganizations() {
+            try {
+              const response = await fetch('../database/getOrganizationById.php');
+              const organizations = await response.json();
+              this.organizations = organizations;
+            } catch (error) {
+              console.error('Error fetching organizations:', error);
+            }
+          },
+        },
+      });
+      vueApp.mount("#myApp");
     </script>
 
     <!-- jQuery Script for Popup -->
     <script>
-        function show() {
-            document.getElementById("popup").style.display = "block";
+      function show() {
+        document.getElementById("popup").style.display = "block";
+      }
+
+      function hide() {
+        const popup = document.getElementById("popup");
+        if (popup) {
+          popup.style.display = "none";
         }
 
-        function hide() {
-            document.getElementById("popup").style.display = "none";
-            document.getElementById("name").value = "";
-            document.getElementById("email").value = "";
-            document.getElementById("ic").value = "";
-            document.getElementById("description").value = "";
-            document.getElementById("pnum").value = "";
+        const elements = ["name", "pic_email", "pic_ic", "description", "pic_pnum"];
+        elements.forEach(id => {
+          const element = document.getElementById(id);
+          if (element) {
+            element.value = "";
+          }
+        });
+      }
+
+      async function add() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("pic_email").value;
+        var description = document.getElementById("description").value;
+        var ic = document.getElementById("pic_ic").value;
+        var pnum = document.getElementById("pic_pnum").value;
+        var adminref = document.getElementById("adminref").value;
+
+        if (name === "" || description === "" || ic === "" || pnum === "" || email === "") {
+          alert("Please fill all fields.");
+          return; // Early exit if validation fails
         }
 
-        function add() {
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
-            var walletAddress = "";
-            var description = document.getElementById("description").value;
-            var ic = document.getElementById("ic").value;
-            var pnum = document.getElementById("pnum").value;
-            
-            if (name == "" || description == "" || ic == "" || pnum == "" || email == "") {
-                alert("Please fill all fields.");
+        console.log("name " + name);
+        console.log("description " + description);
+        console.log("ic " + ic);
+        console.log("pnum " + pnum);
+        console.log("email " + email);
+        console.log("adminref " + adminref);
+
+        try {
+          // First, create the wallet in MasChain
+          const walletPayload = {
+            name: name,
+            email: email,
+            ic: ic,
+            phone: pnum
+          };
+
+          const walletResponse = await fetch('https://service-testnet.maschain.com/api/wallet/create-user', {
+            method: 'POST',
+            headers: {
+              'client_id': window.env.client_id,
+              'client_secret': window.env.client_secret,
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify(walletPayload)
+          });
+
+          const walletResult = await walletResponse.json();
+
+          // Log the walletResult to check its structure
+          console.log('Wallet API Response:', walletResult);
+
+          if (walletResult.status === 200 && walletResult.result && walletResult.result.wallet) {
+            const walletAddress = walletResult.result.wallet.wallet_address;
+
+            // Log walletAddress to confirm it's being received correctly
+            console.log('Wallet Address:', walletAddress);
+
+            // Second, add the organization to the database with the wallet address
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('description', description);
+            formData.append('wallet_address', walletAddress);
+            formData.append('pic_ic', ic);
+            formData.append('pic_pnum', pnum);
+            formData.append('pic_email', email);
+            formData.append('adminref', adminref);
+
+            const response = await fetch('../database/createOrganization.php', {
+              method: 'POST',
+              body: formData
+            });
+
+            const result = await response.json();
+
+            console.log('Create Organization Response:', result);
+
+            if (result.status === 'success') {
+              alert('Organization and wallet added successfully!');
+              hide();
             } else {
-                document.getElementById("popup").style.display = "none";
-                
-                // Create a new row and cells
-                var table = document.getElementById("resultsTable").getElementsByTagName('tbody')[0];
-                var newRow = table.insertRow();
-                var nameCell = newRow.insertCell(0);
-                var descriptionCell = newRow.insertCell(1);
-                var walletCell = newRow.insertCell(2);
-                var icCell = newRow.insertCell(3);
-                var pnumCell = newRow.insertCell(4);
-                var emailCell = newRow.insertCell(5);
-                var fundCell = newRow.insertCell(6);
-                
-                // Append the new values to the cells
-                nameCell.innerHTML = name;
-                descriptionCell.innerHTML = description;
-                walletCell.innerHTML = walletAddress;
-                icCell.innerHTML = ic;
-                pnumCell.innerHTML = pnum;
-                emailCell.innerHTML = email;
-                fundCell.innerHTML = `
-            <a href="../pages/payment_charity.html" class="text-success font-weight-bold text-xs"
-               data-toggle="tooltip" data-original-title="Edit user">
-               Add Fund
-            </a>
-        `;
-                
-                
-                // Clear input fields
-                document.getElementById("name").value = "";
-                document.getElementById("description").value = "";
-                document.getElementById("email").value = "";
-                document.getElementById("ic").value = "";
-                document.getElementById("pnum").value = "";
-                
+              alert('Error adding organization: ' + result.message);
             }
+          } else {
+            alert('Error creating wallet: ' + (walletResult.message || 'Unknown error'));
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('An error occurred. Please try again.');
         }
+      }
     </script>
 
 </html>
