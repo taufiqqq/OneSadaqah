@@ -491,6 +491,18 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <tr>
+                      <td>Islamic Relief Malaysia</td>
+                      <td>Islamic Relief Malaysia continues to be proactive in helping those in need locally or abroad regardless of any differences through the mySedekah campaign which covers various aid sectors such as food, emergency, community development, health, education, water sanitation & hygiene, and others.</td>
+                      <td>0x3F2390100afd70455Cf007172c3dbE1c0097A481</td>
+                      <td>023456-78-9012</td>
+                      <td>0123456789</td>
+                      <td>dummyemail@gmail.com</td>
+                      <td>
+                        <a href="../pages/payment_charityAdmin.html" class="text-success font-weight-bold text-xs"
+                          data-toggle="tooltip" data-original-title="Edit user">Add Fund</a>
+                      </td>
+                    </tr>
                     <tr v-for="org in organizations" :key="org.id">
                       <td>{{ org.name }}</td>
                       <td>{{ org.description }}</td>
@@ -776,7 +788,8 @@
     <!-- jQuery Script for Popup -->
     <script>
       function show() {
-        document.getElementById("popup").style.display = "block";
+        alert('This feature is not included in this deployment. To implement it, refer the README.md to setup the database.');
+        //document.getElementById("popup").style.display = "block";
       }
 
       function hide() {
